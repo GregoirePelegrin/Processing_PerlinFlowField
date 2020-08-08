@@ -18,7 +18,7 @@ class Cell{
   }
   
   void display(){
-    stroke(0, 100);
+    stroke(0, 155);
     
     translate(this.xPos+this.xSize/2, this.yPos+this.ySize/2);
     rotate(this.angleValue);
