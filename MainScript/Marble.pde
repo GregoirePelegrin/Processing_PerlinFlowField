@@ -35,7 +35,7 @@ class Marble{
   }
   
   void display(){
-    stroke(0, 5);
+    stroke(255, 1);
     line(this.xPos, this.yPos, this.xPos+this.xSpeed, this.yPos+this.ySpeed);
     this.xPos += this.xSpeed;
     this.yPos += this.ySpeed;

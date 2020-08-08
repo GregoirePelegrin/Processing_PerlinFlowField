@@ -1,8 +1,14 @@
 class FlowField{
   ArrayList<ArrayList<Cell>> cells;
+  float xTime;
+  float yTime;
+  float zTime;
   
   FlowField(){
     this.cells = new ArrayList<ArrayList<Cell>>();
+    this.xTime = random(10000);
+    this.yTime = random(10000);
+    this.zTime = random(10000);
     
     float xCellSize = width/nbrCellWidth;
     float yCellSize = height/nbrCellHeight;
@@ -20,12 +26,11 @@ class FlowField{
   }
   
   void update(){
-    float xTime = random(10000);
-    float yTime = random(10000);
+    zTime += perlinZStep;
     
     for(int i=0; i<this.cells.size(); i++){
       for(int j=0; j<this.cells.get(i).size(); j++){
-        float angle = map(noise(xTime+i*perlinStep, yTime+j*perlinStep), 0, 1, 0, TWO_PI);
+        float angle = map(noise(this.xTime+i*perlinStep, this.yTime+j*perlinStep, this.zTime), 0, 1, 0, TWO_PI);
         cells.get(i).get(j).setAngle(angle);
       }
     }
